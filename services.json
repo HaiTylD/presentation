@@ -1,0 +1,49 @@
+{
+  "services": [
+    {
+      "name": "Virus Removal",
+      "price": "$50",
+      "icon": "fa-virus"
+    },
+    {
+      "name": "Data Transfer/Recovery",
+      "price": "$25",
+      "icon": "fa-cloud"
+    },
+    {
+      "name": "Device Repair",
+      "price": "$60",
+      "icon": "fa-bug"
+    },
+    {
+      "name": "Device Setup",
+      "price": "$30",
+      "icon": "fa-hammer"
+    },
+    {
+      "name": "Mobile Device Support",
+      "price": "$30",
+      "icon": "fa-mobile"
+    },
+    {
+      "name": "PC Building",
+      "price": "$45/hr",
+      "icon": "fa-toolbox"
+    },
+    {
+      "name": "Networking Support",
+      "price": "$15",
+      "icon": "fa-wifi"
+    },
+    {
+      "name": "Cyber Security",
+      "price": "$80/hr",
+      "icon": "fa-user-shield"
+    },
+    {
+      "name": "Consultation",
+      "price": "$20",
+      "icon": "fa-phone"
+    }
+  ]
+}
