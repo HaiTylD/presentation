@@ -26,16 +26,16 @@
     </div>
 </header>
 
-<section class="container mt-5" id="services">
+<section class="container" id="services">
     <div class="text-center">
-        <h2>Services Offered</h2>
+        <h2 class="h2">Services Offered</h2>
         <div class="row" id="servicesList"></div>
     </div>
 </section>
 
-<section class="container mt-5" id="about">
+<section class="container" id="about">
     <div class="text-center">
-        <h2>About TechNerd4U</h2>
+        <h2 class="h2">About TechNerd4U</h2>
     </div>
     <div class="row">
         <div class="column">
@@ -46,9 +46,9 @@
     </div>
 </section>
 
-<section class="container mt-5">
+<section class="container">
     <div class="text-center">
-        <h2>Meet the Nerds</h2>
+        <h2 class="h2">Meet the Nerds</h2>
     </div>
     <div class="row">
         <div class="col-md-6">
@@ -68,9 +68,9 @@
     </div>
 </section>
 
-<section class="container mt-5">
+<section class="container">
     <div class="text-center">
-        <h2>Schedule an Appointment!</h2>
+        <h2 class="h2">Schedule an Appointment!</h2>
     </div>
     <ul class="bullet">
         <li>Visit the store or mail us your item(s): 123 Nerd Ln, Reading PA 19610</li>
@@ -78,68 +78,62 @@
     </ul>
 </section>
 
-<section class="container mt-5" id="contactus">
+<section class="container" id="contactus">
     <div class="text-center">
-        <h2>Questions? Consult a Nerd</h2>
+        <h2 class="h2">Questions? Consult a Nerd</h2>
     </div>
     <form method="post">
-        <div class="mb-3">
-            <label>Name:</label>
-            <input type="text" class="form-control" placeholder="First & Last Name" required>
+        <div>
+            <label class="form" for="userName">Name:</label>
+            <input type="text" id="userName" class="form-control" placeholder="First & Last Name" required>
+            <label class="form" for="userEmail">Email:</label>
+            <input type="email" id="userEmail" class="form-control" placeholder="Email" required>
+            <label class="form" for="userPhone">Phone:</label>
+            <input type="tel" id="userPhone" class="form-control" placeholder="Phone Number" required>
+            <label class="form" for="commentBox">Comment:</label>
+            <textarea type="text" id="commentBox" class="form-control" placeholder="How can the nerds help?"></textarea>
         </div>
-        <div class="mb-3">
-            <label>Email:</label>
-            <input type="email" class="form-control" placeholder="Email" required>
-        </div>
-        <div class="mb-3">
-            <label>Phone:</label>
-            <input type="tel" class="form-control" placeholder="Phone Number" required>
-        </div>
-        <div class="mb-3">
-            <label>Comment:</label>
-            <textarea type="text" class="form-control" placeholder="How can the nerds help?"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" onclick="confirmation()">Submit</button>
+        <button type="submit" class="btn btn-primary form" onclick="confirmation()">Submit</button>
     </form>
-<section>
-    <footer>
-        <div class="addr text-center" id="addr">
-        <p>Store Address: 123 Nerd Ln, Reading PA 19610</p>
-            <p>Call us: (610) 123-4567</p>
-        </div>
-    </footer>
-</section>
+    <section>
+        <footer>
+            <div class="addr text-center" id="addr">
+                <p>Store Address: 123 Nerd Ln, Reading PA 19610</p>
+                <p>Call us: (610) 123-4567</p>
+            </div>
+        </footer>
+    </section>
 
-<script>
-    $.ajax({
-        url: "services.json",
-        dataType: "json",
-        success: function(data) {
-            displayServices(data.services);
-        },
-    });
+    <script>
+        $.ajax({
+            url: "services.json",
+            dataType: "json",
+            success: function(data) {
+                displayServices(data.services);
+            },
+        });
 
-    function displayServices(services) {
-        let servicesList = $('#servicesList');
+        function displayServices(services) {
+            let servicesList = $('#servicesList');
 
-        services.forEach(service => {
-            let serviceCard = `
-                    <div class="col-md-4 mb-4">
+            services.forEach(service => {
+                let serviceCard = `
+                    <div class="col-md-4 mb-5">
                         <div class="card">
                             <div>
-                                <h5>${service.name}</h5>
+                                <h5><i class="fas ${service.icon}"></i>${service.name}</h5>
                                 <p>Price: ${service.price}</p>
                             </div>
                         </div>
                     </div>
                 `;
-            servicesList.append(serviceCard);
-        });
-    }
+                servicesList.append(serviceCard);
+            });
+        }
 
-    function confirmation() {
-        alert("Thank you, a nerd will respond soon!")
-    }
-</script>
+        function confirmation() {
+            alert("Thank you, a nerd will respond soon!")
+        }
+    </script>
 </body>
 </html>
